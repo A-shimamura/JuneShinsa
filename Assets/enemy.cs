@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class enemy : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject _shoot;
-    [SerializeField] float _turn1=0;
-    [SerializeField] float _turn2=180;
+    [SerializeField] float _turn=0;
+    [SerializeField] int turns = 2;
     Vector2 Vector2 = Vector2.zero;
+    ObjectPool<GameObject> pool;
+    
     void Start()
     {
         Application.targetFrameRate = 120;
@@ -18,14 +21,20 @@ public class enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    private void FixedUpdate()
+    {
         Vector2 = this.transform.position;
 
-        var g1 = Instantiate(_shoot,this.transform.position,Quaternion.Euler(0, 0, _turn1));
-        _turn1 += 5f;
-        var g2 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, _turn2));
-        _turn2 += 5f;
+        for (var i = 0;i < turns; i++)
+        {
+            int _allturns = 360 / turns;
+            var g = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, _turn+(i*_allturns)));
+        }
+        _turn += 5f;
 
-        Vector2.x += 2*Time.deltaTime;
+        //Vector2.x += 0*Time.deltaTime;
         this.transform.position = Vector2;
     }
 }
