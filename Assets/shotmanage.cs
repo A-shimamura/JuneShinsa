@@ -10,12 +10,16 @@ public class shotmanage : MonoBehaviour
     float time;
     void Start()
     {
+        gameObject.transform.localScale = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
+    }
+    private void FixedUpdate()
+    {
         Vector3 velocity = gameObject.transform.rotation * new Vector3(speed, 0, 0);
         gameObject.transform.position += velocity * Time.deltaTime;
         if (time <= 0.5)
@@ -24,10 +28,8 @@ public class shotmanage : MonoBehaviour
         }
         else
         {
-            gameObject.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
+            gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         }
-
-        if (time >= 1.5) speed = 5f;
-        if (time >= 4) Destroy(gameObject);
+        if (time >= 1.5) speed = 4f;
     }
 }
