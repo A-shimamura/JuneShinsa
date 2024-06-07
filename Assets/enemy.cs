@@ -12,6 +12,7 @@ public class enemy : MonoBehaviour
     [SerializeField] int turns = 2;
     Vector2 Vector2 = Vector2.zero;
     ObjectPool<GameObject> pool;
+    private int _layer = 0;
     
     void Start()
     {
@@ -31,8 +32,11 @@ public class enemy : MonoBehaviour
         {
             int _allturns = 360 / turns;
             var g = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, _turn+(i*_allturns)));
+            g.GetComponent<SpriteRenderer>();
+            g.layer = _layer;
         }
-        _turn += 5f;
+        _layer++;
+        _turn += 10f;
 
         //Vector2.x += 0*Time.deltaTime;
         this.transform.position = Vector2;

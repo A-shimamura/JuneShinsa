@@ -18,6 +18,15 @@ public class shotmanage : MonoBehaviour
         time += Time.deltaTime;
         Vector3 velocity = gameObject.transform.rotation * new Vector3(speed, 0, 0);
         gameObject.transform.position += velocity * Time.deltaTime;
+        if (time <= 0.5)
+        {
+            gameObject.transform.localScale = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            gameObject.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
+        }
+
         if (time >= 1.5) speed = 5f;
         if (time >= 4) Destroy(gameObject);
     }
