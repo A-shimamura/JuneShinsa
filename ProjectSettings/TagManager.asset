@@ -7,6 +7,10 @@ TagManager:
   - enemy
   - area
   - shoot
+  - haji1
+  - haji2
+  - ue1
+  - ue2
   layers:
   - Default
   - TransparentFX
