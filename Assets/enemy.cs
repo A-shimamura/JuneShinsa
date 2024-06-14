@@ -8,11 +8,13 @@ public class enemy : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject _shoot;
-    [SerializeField] float _turn=0;
+    [SerializeField] float _turn = 0;
     [SerializeField] int turns = 2;
+    [SerializeField] public int _hp=1000;
     Vector2 Vector2 = Vector2.zero;
     private int _layer;
     private float _speed = 0.3f;
+    
 
     [SerializeField] public int _nowphase=0;
     
