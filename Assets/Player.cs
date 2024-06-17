@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public GameObject _shoot;
     [SerializeField]float speed = 1;
     [SerializeField]Text text;
     public Transform _ue;
@@ -15,6 +16,8 @@ public class Player : MonoBehaviour
     Vector2 Vector2 = Vector2.zero;
     private int hit = 1;
     private SpriteRenderer _thisball;
+    [SerializeField] float _shotcool = 0.1f;
+    private float _shottime;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,7 @@ public class Player : MonoBehaviour
             speed = 1f;
             _thisball.enabled = false;
         }
+        _shottime += Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -57,6 +61,21 @@ public class Player : MonoBehaviour
         {
             Vector2.x += speed * 0.1f;
         }
+        
+        if(Input.GetKey(KeyCode.Z)&& Input.GetKey(KeyCode.LeftShift) && _shotcool <=_shottime)
+        {
+            _shottime = 0;
+            var g = Instantiate(_shoot, this.transform.position,Quaternion.Euler(0,0,90f));
+            //var g1 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 85f));
+            //var g2 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 95f));
+        }
+        else if (Input.GetKey(KeyCode.Z) && _shotcool <= _shottime)
+        {
+            _shottime = 0;
+            var g = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 90f));
+            var g1 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 85f));
+            var g2 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 95f));
+        }
 
         transform.position = Vector2;
     }
@@ -64,27 +83,23 @@ public class Player : MonoBehaviour
     {
         if(collision.tag == "shoot")
         {
-            text.text = hit++.ToString();
+            text.text = "ƒAƒEƒg‚â‚Å";
         }
         if (collision.tag == "haji1")
         {
             Vector2.x += 0.01f;
-            Debug.Log("“–‚½‚Á‚Ä‚à‚½");
         }
         if (collision.tag == "haji2")
         {
             Vector2.x -= 0.01f;
-            Debug.Log("“–‚½‚Á‚Ä‚à‚½");
         }
         if (collision.tag == "ue1")
         {
             Vector2.y -= 0.01f;
-            Debug.Log("“–‚½‚Á‚Ä‚à‚½");
         }
         if (collision.tag == "ue2")
         {
             Vector2.x += 0.01f;
-            Debug.Log("“–‚½‚Á‚Ä‚à‚½");
         }
 
     }

@@ -53,6 +53,7 @@ SpriteAtlas:
     - 2307e0118b2bce94e84e37606fe40eb7: 21300000
     - 9a7d33a4a344ce14aa895519f04a3ffb: 21300000
     - 74cfe5a40328d054baf0cac4bd22e229: 21300000
+    - fdfa218651a85f842ababed623aea26b: 21300000
     - 562fdb579cba4c14ba06e99b8bdfaadb: 21300000
     - d65281d8c9f98ec429f3fdd6ce9f84fa: 21300000
   m_MasterAtlas: {fileID: 0}
@@ -60,12 +61,14 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 2307e0118b2bce94e84e37606fe40eb7, type: 3}
   - {fileID: 21300000, guid: 9a7d33a4a344ce14aa895519f04a3ffb, type: 3}
   - {fileID: 21300000, guid: 74cfe5a40328d054baf0cac4bd22e229, type: 3}
+  - {fileID: 21300000, guid: fdfa218651a85f842ababed623aea26b, type: 3}
   - {fileID: 21300000, guid: 562fdb579cba4c14ba06e99b8bdfaadb, type: 3}
   - {fileID: 21300000, guid: d65281d8c9f98ec429f3fdd6ce9f84fa, type: 3}
   m_PackedSpriteNamesToIndex:
   - maru
   - yom
   - player
+  - playertama 1
   - HP
   - hiyo2
   m_RenderDataMap: {}

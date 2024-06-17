@@ -17,7 +17,7 @@ public class DeleteA : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "shoot")
+        if (collision.tag == "shoot" || collision.tag == "pshoot")
         {
             Destroy(collision.gameObject);
         }

@@ -11,6 +11,7 @@ TagManager:
   - haji2
   - ue1
   - ue2
+  - pshoot
   layers:
   - Default
   - TransparentFX
