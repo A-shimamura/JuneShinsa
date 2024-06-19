@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     public Transform _migi;
     public Transform _hidari;
     Vector2 Vector2 = Vector2.zero;
-    private int hit = 1;
     private SpriteRenderer _thisball;
     [SerializeField] float _shotcool = 0.1f;
     private float _shottime;
