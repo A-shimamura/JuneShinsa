@@ -9,17 +9,26 @@ public class Player : MonoBehaviour
     public GameObject _shoot;
     [SerializeField]float speed = 1;
     [SerializeField]Text text;
+    [SerializeField] Text textt;
+    [SerializeField] GameObject area;
+    [SerializeField] GameObject enem;
     public Transform _ue;
     public Transform _sita;
     public Transform _migi;
     public Transform _hidari;
+    public bool _gameoverflag = false;
     Vector2 Vector2 = Vector2.zero;
     private SpriteRenderer _thisball;
     [SerializeField] float _shotcool = 0.1f;
     private float _shottime;
+    private ObjectPool _objectPool = default;
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.transform.position = new Vector2(0,-4);
+        _objectPool = new();
+        area.GetComponent<DeleteA>().PInitialize(_objectPool);
+        enem.GetComponent<enemy>().Initialize(_objectPool);
         _thisball = gameObject.GetComponent<SpriteRenderer>();
         _thisball.enabled = false;
     }
@@ -64,16 +73,28 @@ public class Player : MonoBehaviour
         if(Input.GetKey(KeyCode.Z)&& Input.GetKey(KeyCode.LeftShift) && _shotcool <=_shottime)
         {
             _shottime = 0;
-            var g = Instantiate(_shoot, this.transform.position,Quaternion.Euler(0,0,90f));
+            var g = _objectPool.SpawnObject(_shoot);
+            g.transform.position = this.transform.position;
+            g.transform.rotation = Quaternion.Euler(0, 0, 90f);
+            //var g = Instantiate(_shoot, this.transform.position,Quaternion.Euler(0,0,90f));
             //var g1 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 85f));
             //var g2 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 95f));
         }
         else if (Input.GetKey(KeyCode.Z) && _shotcool <= _shottime)
         {
             _shottime = 0;
-            var g = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 90f));
-            var g1 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 85f));
-            var g2 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 95f));
+            var g = _objectPool.SpawnObject(_shoot);
+            g.transform.position = this.transform.position;
+            g.transform.rotation = Quaternion.Euler(0, 0, 90f);
+            var g1 = _objectPool.SpawnObject(_shoot);
+            g1.transform.position = this.transform.position;
+            g1.transform.rotation = Quaternion.Euler(0, 0, 85f);
+            var g2 = _objectPool.SpawnObject(_shoot);
+            g2.transform.position = this.transform.position;
+            g2.transform.rotation = Quaternion.Euler(0, 0, 95f);
+            //var g = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 90f));
+            //var g1 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 85f));
+            //var g2 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 95f));
         }
 
         transform.position = Vector2;
@@ -82,24 +103,8 @@ public class Player : MonoBehaviour
     {
         if(collision.tag == "shoot")
         {
+            _gameoverflag = true;
             text.text = "ƒAƒEƒg‚â‚Å";
         }
-        if (collision.tag == "haji1")
-        {
-            Vector2.x += 0.01f;
-        }
-        if (collision.tag == "haji2")
-        {
-            Vector2.x -= 0.01f;
-        }
-        if (collision.tag == "ue1")
-        {
-            Vector2.y -= 0.01f;
-        }
-        if (collision.tag == "ue2")
-        {
-            Vector2.x += 0.01f;
-        }
-
     }
 }

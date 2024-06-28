@@ -761,6 +761,8 @@ MonoBehaviour:
   _shoot: {fileID: 4606295935434868328, guid: 25a2baf646c7645439c0979805f2a2ef, type: 3}
   speed: 1
   text: {fileID: 1441452777}
+  area: {fileID: 245375523}
+  enem: {fileID: 1447891817}
   _ue: {fileID: 781104821}
   _sita: {fileID: 832764155}
   _migi: {fileID: 770297588}
@@ -1115,9 +1117,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shoot: {fileID: 4606295935434868328, guid: 8184900394585034eb281b8852a6dd23, type: 3}
   _turn: 0
-  turns: 8
+  turns: 11
   _hp: 1000
-  _damage: 8
+  _damage: 6
+  area: {fileID: 245375523}
+  _P1shotcool: 0.1
   _nowphase: 1
 --- !u!212 &1447891819
 SpriteRenderer:
