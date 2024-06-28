@@ -77,13 +77,14 @@ public class enemy : MonoBehaviour
             if (_muteki && _hp <= 9996)
             {
                 _hp += 5;
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(0, 3), _speed * 2 * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(0, 3), _speed *Time.deltaTime);
                 if (_nowphase == 3) { Initiate.Fade("crear", Color.black, 4f); }
             }
             if (_hp >= 1000 && _muteki)
             {
                 _hp--;
                 _muteki = false;
+                _speed = 0.3f;
                 _nowphase++;
                 transform.position = new Vector2(0, 3);
                 vector2 = _playerpos.position;

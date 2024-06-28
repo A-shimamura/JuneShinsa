@@ -5,9 +5,13 @@ using UnityEngine;
 public class toTiitle : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    [RuntimeInitializeOnLoadMethod]
+    static void OnRuntimeMethodLoad()
     {
-        
+        Debug.Log("After Scene is loaded and game is running");
+        // スクリーンサイズの指定
+        Screen.SetResolution(1920, 1080,true);
+
     }
 
     // Update is called once per frame
