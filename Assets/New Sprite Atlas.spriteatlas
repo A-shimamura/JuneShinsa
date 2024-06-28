@@ -51,29 +51,41 @@ SpriteAtlas:
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
     - 2307e0118b2bce94e84e37606fe40eb7: 21300000
+    - 25adc332052c81a48a4c1f392b2c0864: 21300000
     - 6dee4d83e2b75e247ba14652a848fca2: 21300000
     - 9a7d33a4a344ce14aa895519f04a3ffb: 21300000
     - 74cfe5a40328d054baf0cac4bd22e229: 21300000
+    - 517961e5f1c4a5d4ab1131268e5b67ee: 21300000
     - fdfa218651a85f842ababed623aea26b: 21300000
     - 562fdb579cba4c14ba06e99b8bdfaadb: 21300000
+    - e851a7989941e674c9d135948b469141: 21300000
     - d65281d8c9f98ec429f3fdd6ce9f84fa: 21300000
+    - a353484b3f961ca40b0092c0b0550208: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 2307e0118b2bce94e84e37606fe40eb7, type: 3}
+  - {fileID: 21300000, guid: 25adc332052c81a48a4c1f392b2c0864, type: 3}
   - {fileID: 21300000, guid: 6dee4d83e2b75e247ba14652a848fca2, type: 3}
   - {fileID: 21300000, guid: 9a7d33a4a344ce14aa895519f04a3ffb, type: 3}
   - {fileID: 21300000, guid: 74cfe5a40328d054baf0cac4bd22e229, type: 3}
+  - {fileID: 21300000, guid: 517961e5f1c4a5d4ab1131268e5b67ee, type: 3}
   - {fileID: 21300000, guid: fdfa218651a85f842ababed623aea26b, type: 3}
   - {fileID: 21300000, guid: 562fdb579cba4c14ba06e99b8bdfaadb, type: 3}
+  - {fileID: 21300000, guid: e851a7989941e674c9d135948b469141, type: 3}
   - {fileID: 21300000, guid: d65281d8c9f98ec429f3fdd6ce9f84fa, type: 3}
+  - {fileID: 21300000, guid: a353484b3f961ca40b0092c0b0550208, type: 3}
   m_PackedSpriteNamesToIndex:
   - maru
+  - 217_20240628233223
   - 214_20240628130738
   - yom
   - player
+  - 217_20240628232404
   - playertama 1
   - HP
+  - 217_20240628232320
   - hiyo2
+  - 216_20240628225110
   m_RenderDataMap: {}
   m_Tag: New Sprite Atlas
   m_IsVariant: 0

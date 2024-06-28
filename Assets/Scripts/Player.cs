@@ -36,6 +36,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_gameoverflag && Input.GetKeyDown(KeyCode.Z))
+        {
+            Initiate.Fade("SampleScene", Color.black, 4f);
+        }
+        if (_gameoverflag && Input.GetKeyDown(KeyCode.Escape))
+        {
+            Initiate.Fade("title", Color.black, 4f);
+        }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             speed = 0.4f;
@@ -51,60 +59,62 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 = transform.position;
+        if (!_gameoverflag)
+        {
+            Vector2 = transform.position;
 
-        if (Input.GetKey(KeyCode.UpArrow) && Vector2.y <= _ue.position.y)
-        {
-            Vector2.y += speed * 0.1f;
-        }
-        else if (Input.GetKey(KeyCode.DownArrow) && Vector2.y >= _sita.position.y)
-        {
-            Vector2.y -= speed * 0.1f;
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow) && Vector2.x >= _hidari.position.x)
-        {
-            Vector2.x -= speed * 0.1f;
-        }
-        else if (Input.GetKey(KeyCode.RightArrow) && Vector2.x <= _migi.position.x)
-        {
-            Vector2.x += speed * 0.1f;
-        }
-        
-        if(Input.GetKey(KeyCode.Z)&& Input.GetKey(KeyCode.LeftShift) && _shotcool <=_shottime)
-        {
-            _shottime = 0;
-            var g = _objectPool.SpawnObject(_shoot);
-            g.transform.position = this.transform.position;
-            g.transform.rotation = Quaternion.Euler(0, 0, 90f);
-            //var g = Instantiate(_shoot, this.transform.position,Quaternion.Euler(0,0,90f));
-            //var g1 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 85f));
-            //var g2 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 95f));
-        }
-        else if (Input.GetKey(KeyCode.Z) && _shotcool <= _shottime)
-        {
-            _shottime = 0;
-            var g = _objectPool.SpawnObject(_shoot);
-            g.transform.position = this.transform.position;
-            g.transform.rotation = Quaternion.Euler(0, 0, 90f);
-            var g1 = _objectPool.SpawnObject(_shoot);
-            g1.transform.position = this.transform.position;
-            g1.transform.rotation = Quaternion.Euler(0, 0, 85f);
-            var g2 = _objectPool.SpawnObject(_shoot);
-            g2.transform.position = this.transform.position;
-            g2.transform.rotation = Quaternion.Euler(0, 0, 95f);
-            //var g = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 90f));
-            //var g1 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 85f));
-            //var g2 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 95f));
-        }
+            if (Input.GetKey(KeyCode.UpArrow) && Vector2.y <= _ue.position.y)
+            {
+                Vector2.y += speed * 0.1f;
+            }
+            else if (Input.GetKey(KeyCode.DownArrow) && Vector2.y >= _sita.position.y)
+            {
+                Vector2.y -= speed * 0.1f;
+            }
+            else if (Input.GetKey(KeyCode.LeftArrow) && Vector2.x >= _hidari.position.x)
+            {
+                Vector2.x -= speed * 0.1f;
+            }
+            else if (Input.GetKey(KeyCode.RightArrow) && Vector2.x <= _migi.position.x)
+            {
+                Vector2.x += speed * 0.1f;
+            }
 
-        transform.position = Vector2;
+            if (Input.GetKey(KeyCode.Z) && Input.GetKey(KeyCode.LeftShift) && _shotcool <= _shottime)
+            {
+                _shottime = 0;
+                var g = _objectPool.SpawnObject(_shoot);
+                g.transform.position = this.transform.position;
+                g.transform.rotation = Quaternion.Euler(0, 0, 90f);
+                //var g = Instantiate(_shoot, this.transform.position,Quaternion.Euler(0,0,90f));
+                //var g1 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 85f));
+                //var g2 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 95f));
+            }
+            else if (Input.GetKey(KeyCode.Z) && _shotcool <= _shottime)
+            {
+                _shottime = 0;
+                var g = _objectPool.SpawnObject(_shoot);
+                g.transform.position = this.transform.position;
+                g.transform.rotation = Quaternion.Euler(0, 0, 90f);
+                var g1 = _objectPool.SpawnObject(_shoot);
+                g1.transform.position = this.transform.position;
+                g1.transform.rotation = Quaternion.Euler(0, 0, 85f);
+                var g2 = _objectPool.SpawnObject(_shoot);
+                g2.transform.position = this.transform.position;
+                g2.transform.rotation = Quaternion.Euler(0, 0, 95f);
+                //var g = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 90f));
+                //var g1 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 85f));
+                //var g2 = Instantiate(_shoot, this.transform.position, Quaternion.Euler(0, 0, 95f));
+            }
+            transform.position = Vector2;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "shoot")
         {
             _gameoverflag = true;
-            text.text = "ƒAƒEƒg‚â‚Å";
+            text.text = "YOU DEAD";
         }
     }
 }
