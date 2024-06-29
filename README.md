@@ -4,4 +4,3 @@
 どうせコード書くのグダグダするから先に絵を描いてください  
 小野寺の画像はあるので自機画像とっとと描いて？  
 自機の弾も描いてください。  
-![doit](https://github.com/A-shimamura/JuneShinsa/assets/170284255/37ddd363-9757-4dea-bf0e-937a70d3cd14)
